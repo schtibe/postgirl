@@ -1,4 +1,5 @@
 <script>
+	import RequestList from "./RequestList.svelte";
 	import RequestWindow from "./RequestWindow.svelte";
 </script>
 
@@ -11,5 +12,12 @@
 </style>
 
 <main>
-	<RequestWindow />
+	<div class="flex justify-between">
+		<div class="w-32">
+			<RequestList />
+		</div>
+		<div class="ml-8 w-full">
+			<RequestWindow />
+		</div>
+	</div>
 </main>

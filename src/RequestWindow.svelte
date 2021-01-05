@@ -4,19 +4,19 @@
   import MethodSelect from "./MethodSelect.svelte";
   import RequestHeaders from "./RequestHeaders.svelte";
 
-  let requestData = {
-    url: "https://",
-    headers: [
-      {
-        name: "Content-Type",
-        value: "application/json",
-      },
-    ],
-    method: "get",
-    data: "",
-  };
+  import { requests, currentRequest } from "./store.js";
 
   let response;
+  let requestData;
+  let requestStore;
+
+  requests.subscribe((value) => {
+    requestStore = value;
+  });
+
+  currentRequest.subscribe((value) => {
+    requestData = requestStore[value];
+  });
 
   let responseHeaders;
   $: {
@@ -70,30 +70,35 @@
   }
 </script>
 
-<main>
-  <div class="flex flex-col">
-    <div class="flex">
-      <MethodSelect bind:method={requestData.method} />
-      <input class="w-full" placeholder="URL" bind:value={requestData.url} />
-    </div>
-    <RequestHeaders bind:headers={requestData.headers} />
-    <textarea
-      placeholder="JSON data"
-      class="mt-4 h-32"
-      bind:value={requestData.data} />
-    <button class="w-32 self-end mt-4" on:click={submit}>Submit</button>
-  </div>
+<div class="flex flex-col">
+  <input
+    bind:value={$requests[$currentRequest].name}
+    placeholder="request name" />
 
-  <div>Status code: {status}</div>
-
-  <div class="mt-4 flex flex-col">
-    <textarea
-      placeholder="response header"
-      value={responseHeaders}
-      class="h-32" />
-    <textarea
-      placeholder="response data"
-      value={responseData}
-      class="mt-4 h-32" />
+  <div class="flex">
+    <MethodSelect bind:method={$requests[$currentRequest].method} />
+    <input
+      class="w-full"
+      placeholder="URL"
+      bind:value={$requests[$currentRequest].url} />
   </div>
-</main>
+  <RequestHeaders bind:headers={$requests[$currentRequest].headers} />
+  <textarea
+    placeholder="JSON data"
+    class="mt-4 h-32"
+    bind:value={$requests[$currentRequest].data} />
+  <button class="w-32 self-end mt-4" on:click={submit}>Submit</button>
+</div>
+
+<div>Status code: {status}</div>
+
+<div class="mt-4 flex flex-col">
+  <textarea
+    placeholder="response header"
+    value={responseHeaders}
+    class="h-32" />
+  <textarea
+    placeholder="response data"
+    value={responseData}
+    class="mt-4 h-32" />
+</div>
