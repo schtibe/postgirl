@@ -1,6 +1,7 @@
 <script>
 	import RequestList from "./RequestList.svelte";
 	import RequestWindow from "./RequestWindow.svelte";
+	import LoadConfig from "./LoadConfig.svelte";
 </script>
 
 <style global>
@@ -20,4 +21,5 @@
 			<RequestWindow />
 		</div>
 	</div>
+	<LoadConfig />
 </main>
