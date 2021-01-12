@@ -17,14 +17,15 @@
   </div>
   <div class="mt-2">
     {#each headers as header}
-      <div class="flex justify-between">
+      <div class="flex justify-between mt-2">
         <input bind:value={header.name} class="w-full" />
         <input bind:value={header.value} class="w-full ml-2" />
         <button
           on:click={removeHeader(header)}
-          class=" btn--secondary w-32 ml-2">-</button>
+          class="w-32 ml-2 btn--secondary">-</button>
       </div>
     {/each}
   </div>
-  <button on:click={addHeader} class="btn--secondary mt-2">Add Header</button>
+  <button on:click={addHeader} class="self-end w-64 mt-2 btn--secondary">Add
+    Header</button>
 </div>

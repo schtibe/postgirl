@@ -29,8 +29,8 @@
   }
 </script>
 
-<div class="flex flex-col mt-10">
-  <button class="btn--secondary w-64" on:click={dumpConfig}>Download config</button>
+<div class="flex flex-row justify-between mt-10">
+  <button class="w-64 btn--secondary" on:click={dumpConfig}>Save config</button>
   <div class="mt-4">
     Upload config:
     <input type="file" placeholder="upload config" on:change={loadConfig} />

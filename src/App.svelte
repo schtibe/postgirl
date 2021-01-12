@@ -34,20 +34,34 @@
 		@apply bg-secondary;
 	}
 
-	input,
+	input:not([type="file"]),
 	textarea {
 		@apply px-2;
 		@apply rounded;
 		@apply border border-tertiary;
 	}
+
+	a {
+		@apply text-secondary;
+		@apply no-underline;
+	}
+
+	h2 {
+		@apply text-xl;
+	}
+
+	select {
+		@apply bg-white;
+		@apply border-tertiary;
+	}
 </style>
 
 <main>
 	<div class="flex justify-between">
-		<div class="w-32">
+		<div class="w-64">
 			<RequestList />
 		</div>
-		<div class="ml-8 w-full">
+		<div class="w-full ml-8">
 			<RequestWindow />
 		</div>
 	</div>

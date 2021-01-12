@@ -78,31 +78,35 @@
   <div class="flex mt-4">
     <MethodSelect bind:method={$requests[$currentRequest].method} />
     <input
-      class="w-full"
+      class="w-full ml-4"
       placeholder="URL"
       bind:value={$requests[$currentRequest].url} />
   </div>
   <div class="mt-4">
     <RequestHeaders bind:headers={$requests[$currentRequest].headers} />
   </div>
+
+  <h2>Data:</h2>
   <textarea
+    disabled={$requests[$currentRequest].method == 'get'}
     placeholder="JSON data"
-    class="mt-4 h-32"
+    class="h-32 mt-4"
     bind:value={$requests[$currentRequest].data} />
   <button
-    class="btn--primary w-32 self-end mt-4"
+    class="self-end w-32 mt-4 btn--primary"
     on:click={submit}>Submit</button>
 </div>
 
 <div>Status code: {status}</div>
 
-<div class="mt-4 flex flex-col">
+<div class="flex flex-col mt-4">
+  <h2>Response:</h2>
   <textarea
     placeholder="response header"
     value={responseHeaders}
-    class="h-32" />
+    class="h-32 mt-2" />
   <textarea
     placeholder="response data"
     value={responseData}
-    class="mt-4 h-32" />
+    class="h-32 mt-4" />
 </div>
