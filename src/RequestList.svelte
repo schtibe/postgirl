@@ -23,5 +23,5 @@
     </div>
   {/each}
 
-  <button on:click={addRequest}>+</button>
+  <button on:click={addRequest} class="btn--primary">+</button>
 </div>

@@ -30,7 +30,7 @@
 </script>
 
 <div class="flex flex-col mt-10">
-  <button class="w-32" on:click={dumpConfig}>Download config</button>
+  <button class="btn--secondary w-64" on:click={dumpConfig}>Download config</button>
   <div class="mt-4">
     Upload config:
     <input type="file" placeholder="upload config" on:change={loadConfig} />

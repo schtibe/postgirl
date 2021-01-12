@@ -75,19 +75,23 @@
     bind:value={$requests[$currentRequest].name}
     placeholder="request name" />
 
-  <div class="flex">
+  <div class="flex mt-4">
     <MethodSelect bind:method={$requests[$currentRequest].method} />
     <input
       class="w-full"
       placeholder="URL"
       bind:value={$requests[$currentRequest].url} />
   </div>
-  <RequestHeaders bind:headers={$requests[$currentRequest].headers} />
+  <div class="mt-4">
+    <RequestHeaders bind:headers={$requests[$currentRequest].headers} />
+  </div>
   <textarea
     placeholder="JSON data"
     class="mt-4 h-32"
     bind:value={$requests[$currentRequest].data} />
-  <button class="w-32 self-end mt-4" on:click={submit}>Submit</button>
+  <button
+    class="btn--primary w-32 self-end mt-4"
+    on:click={submit}>Submit</button>
 </div>
 
 <div>Status code: {status}</div>
