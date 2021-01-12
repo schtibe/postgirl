@@ -3,6 +3,7 @@
   import axios from "axios";
   import MethodSelect from "./MethodSelect.svelte";
   import RequestHeaders from "./RequestHeaders.svelte";
+  import RequestTitle from "./RequestTitle.svelte";
 
   import { requests, currentRequest } from "./store.js";
 
@@ -71,9 +72,7 @@
 </script>
 
 <div class="flex flex-col">
-  <input
-    bind:value={$requests[$currentRequest].name}
-    placeholder="request name" />
+  <RequestTitle bind:value={$requests[$currentRequest].name} />
 
   <div class="flex mt-4">
     <MethodSelect bind:method={$requests[$currentRequest].method} />

@@ -43,6 +43,7 @@
 
 	input:not([type="file"]),
 	textarea {
+		@apply py-1;
 		@apply px-2;
 		@apply rounded;
 		@apply border border-tertiary;
@@ -51,6 +52,11 @@
 	a {
 		@apply text-secondary;
 		@apply no-underline;
+	}
+
+	h1 {
+		@apply text-3xl;
+		@apply text-primary;
 	}
 
 	h2 {
