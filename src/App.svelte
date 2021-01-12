@@ -34,6 +34,13 @@
 		@apply bg-secondary;
 	}
 
+	btn--primary:disabled,
+	.btn--secondary:disabled {
+		@apply bg-gray-200;
+		@apply text-white;
+		@apply cursor-not-allowed;
+	}
+
 	input:not([type="file"]),
 	textarea {
 		@apply px-2;

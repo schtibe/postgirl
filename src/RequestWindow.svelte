@@ -110,3 +110,12 @@
     value={responseData}
     class="h-32 mt-4" />
 </div>
+
+<div class="flex flex-col">
+  <button
+    class="self-end mt-2 btn--secondary"
+    disabled={requestStore.length == 1}
+    on:click={requests.remove(requestData)}>
+    Remove request
+  </button>
+</div>

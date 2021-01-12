@@ -14,10 +14,6 @@
     requestStore = value;
   });
 
-  function addRequest() {
-    requests.update((requests) => [...requests, defaultRequest()]);
-  }
-
   function selectRequest(number) {
     currentRequest.set(number);
   }
@@ -57,5 +53,7 @@
     </div>
   {/each}
 
-  <button on:click={addRequest} class="mt-auto btn--primary">Add new request</button>
+  <button on:click={requests.addNew} class="mt-auto btn--primary">
+    Add new request
+  </button>
 </div>
